@@ -523,7 +523,7 @@
                         <!-- //media-library 전체 영역 -->
 
                         <!-- 레이어 팝업(미디어 라이브러리), 각 팝업에는 dimmed 가 기본으로 들어 있음, 제일 위에 떠야 되는 팝업이 제일 아래에 있으면 됩니다. (그게 어렵다면 팝업이 뜰 때(display: block 될 때) z-index 값을 1010 값을 기준으로 10씩 늘려주어도 됩니다.) -->
-                        <div class="media-library-layer-popup media-library-layer-popup--media-library" style="display: block">
+                        <div class="media-library-layer-popup media-library-layer-popup--media-library" style="display: none">
                             <div class="media-library-layer-popup-content">
                                 <div class="media-library-layer-popup-content-inner">
                                     <div class="media-library-layer-popup-header">
@@ -1014,7 +1014,7 @@
                         <!-- //레이어 팝업(미디어 라이브러리) -->
 
                         <!-- 레이어 팝업(파일 편집 팝업), 각 팝업에는 dimmed 가 기본으로 들어 있음, 제일 위에 떠야 되는 팝업이 제일 아래에 있으면 됩니다. (그게 어렵다면 팝업이 뜰 때(display: block 될 때) z-index 값을 1010 값을 기준으로 10씩 늘려주어도 됩니다.) -->
-                        <div class="media-library-layer-popup media-library-layer-popup--align-center media-library-layer-popup--media-detail" style="display: none;">
+                        <div class="media-library-layer-popup media-library-layer-popup--align-center media-library-layer-popup--media-detail" style="display: block;">
                             <div class="media-library-layer-popup-content">
                                 <div class="media-library-layer-popup-content-inner">
                                     <div class="media-library-layer-popup-header">
@@ -1057,10 +1057,16 @@
                                         <div class="media-library-layer-popup-detail">
                                             <div class="media-library-layer-popup-detail-view">
                                                 <div class="media-library-layer-popup-detail-view__inner">
+                                                    <!-- [D] 2019/07/26 - 이미지 좌우 이동 화살표 버튼 추가 -->
+                                                    <button type="button" class="media-library-layer-popup-detail-view__button-left"><i class="xi-angle-left-min"><span class="blind">이전 이미지 보기</span></i></button>
                                                     <div class="media-library-layer-popup-detail-view__image-box">
                                                         <img src="../../../assets/core/media_library/img/@img-popup-detail.jpg" class="media-library-layer-popup-detail-view__image" alt="">
                                                         <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Suzy_at_a_fansigning_event%2C_31_January_2017_01.jpg" class="media-library-layer-popup-detail-view__image" alt=""> -->
                                                     </div>
+                                                    <!-- [D] 2019/07/26 - 이미지 좌우 이동 화살표 버튼 추가 -->
+                                                    <button type="button" class="media-library-layer-popup-detail-view__button-right"><i class="xi-angle-right-min"><span class="blind">다음 이미지 보기</span></i></button>
+                                                    <!-- [D] 2019/07/26 - 이미지 편집 버튼 추가 -->
+                                                    <button type="button" class="media-library-layer-popup-detail-view__button-update">이미지 편집</button>
                                                 </div>
                                             </div>
                                             <div class="media-library-layer-popup-detail-info">
