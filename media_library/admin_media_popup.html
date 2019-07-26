@@ -1018,13 +1018,16 @@
                             <div class="media-library-layer-popup-content">
                                 <div class="media-library-layer-popup-content-inner">
                                     <div class="media-library-layer-popup-header">
+                                        <!-- [D] 2019/07/26 - 이미지 편집 일때 타이틀 문구 "이미지 편집" 으로 적용 -->
                                         <h3 class="media-library-layer-popup-header__title">파일 상세정보 <span class="blind">레이어 팝업</span></h3>
                                         <!-- [D] 모바일에서 class="media-library-layer-popup__button-close" 버튼 클릭 시 팝업 닫기 기능 적용 (PC 에서는 해당 버튼 숨겨짐) -->
                                         <button type="button" class="media-library-layer-popup__button-close">
                                             <span class="blind">파일 상세정보 레이어 팝업 닫기</span>
                                             <span class="media-library-layer-popup__button-close-image"></span>
                                         </button>
-                                        <div class="media-library-layer-popup_button-box">
+
+                                        <!-- [D] 2019/07/26 - 파일 상세 정보 헤더 -->
+                                        <div class="media-library-layer-popup_button-box" style="display: flex">
                                             <button type="button" class="media-library__button media-library__button--subtle media-library__button--icon">
                                                 <span class="media-library__button-icon media-library__button-icon--edit"></span>
                                             </button>
@@ -1052,6 +1055,22 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <!-- //[D] 2019/07/26 - 파일 상세 정보 헤더 -->
+
+                                        <!-- [D] 2019/07/26 - 이미지 편집 헤더 -->
+                                        <div class="media-library-layer-popup_button-box" style="display: flex">
+                                            <button type="button" class="media-library__button media-library__button--subtle media-library__button--icon">
+                                                <span class="media-library__button-icon media-library__button-icon--crop"></span>
+                                            </button>
+                                            <button type="button" class="media-library__button media-library__button--subtle media-library__button--icon">
+                                                <span class="media-library__button-icon media-library__button-icon--rotation"></span>
+                                            </button>
+                                            <button type="button" class="media-library__button media-library__button--subtle">
+                                                재설정
+                                            </button>
+                                        </div>
+                                        <!-- //[D] 2019/07/26 - 이미지 편집 헤더 -->
+
                                     </div>
                                     <div class="media-library-layer-popup-body">
                                         <div class="media-library-layer-popup-detail">
@@ -1065,12 +1084,14 @@
                                                     </div>
                                                     <!-- [D] 2019/07/26 - 이미지 좌우 이동 화살표 버튼 추가 -->
                                                     <button type="button" class="media-library-layer-popup-detail-view__button-right"><i class="xi-angle-right-min"><span class="blind">다음 이미지 보기</span></i></button>
-                                                    <!-- [D] 2019/07/26 - 이미지 편집 버튼 추가 -->
+                                                    <!-- [D] 2019/07/26 - 이미지 편집 버튼 추가, 이미지 편집 일 때 해당 버튼 display: none 적용 -->
                                                     <button type="button" class="media-library-layer-popup-detail-view__button-update">이미지 편집</button>
                                                 </div>
                                             </div>
                                             <div class="media-library-layer-popup-detail-info">
-                                                <div class="media-library-layer-popup-detail-info__inner">
+                                                
+                                                <!-- [D] 2019/07/26 - 파일 상세정보 컨텐츠 -->
+                                                <div class="media-library-layer-popup-detail-info__inner" style="display: block">
                                                     <div class="media-library-layer-popup-detail-info-file">
                                                         <dl>
                                                             <dt>파일명</dt>
@@ -1129,6 +1150,50 @@
                                                         </dl>
                                                     </div>
                                                 </div>
+                                                <!-- //파일 상세정보 컨텐츠 -->
+
+                                                <!-- [D] 2019/07/26 - 이미지 편집 -->
+                                                <div class="media-library-layer-popup-detail-info__inner" style="display: block">
+                                                    <!-- [D] 2019/07/26 - 이미지 편집 모드 class="media-library-layer-popup-detail-info-content--edit-mode" 추가 -->
+                                                    <div class="media-library-layer-popup-detail-info-content media-library-layer-popup-detail-info-content--edit-mode">
+                                                        <dl>
+                                                            <dt><label for="mediaLibraryDetailImageSize">이미지 크기 조정</label></dt>
+                                                            <dd>
+                                                                <div class="media-library-layer-popup-detail-info-content__description-box">
+                                                                    <p class="media-library-layer-popup-detail-info-content__description-text">원본 이미지를 비율대로 크기를 줄일 수 있습니다.</p>
+                                                                    <p class="media-library-layer-popup-detail-info-content__description-text">원본크기 : <span class="media-library-layer-popup-detail-info-content__size-text">1200x1200</span></p>
+                                                                </div>
+                                                                <div class="media-library__input-group">
+                                                                    <input type="text" class="media-library__input-text" id="mediaLibraryDetailImageSize" style="width: 80px">
+                                                                </div>
+                                                                <span class="media-library-layer-popup-detail-info-content__etc-text">x</span>
+                                                                <div class="media-library__input-group">
+                                                                    <input type="text" class="media-library__input-text" style="width: 80px">
+                                                                </div>
+                                                                <button type="button" class="media-library__button media-library__button--primary media-library__button--icon">
+                                                                    <span class="media-library__button-icon media-library__button-icon--check"></span>
+                                                                </button>
+                                                            </dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><label for="mediaLibraryDetailImageCut">이미지 자르기</label></dt>
+                                                            <dd>
+                                                                <div class="media-library-layer-popup-detail-info-content__description-box">
+                                                                    <p class="media-library-layer-popup-detail-info-content__description-text">픽셀 사이즈를 입력해서 이미지를 자를 수 있습니다. 이미지를 클릭하고 드래그하세요.</p>
+                                                                </div>
+                                                                <div class="media-library__input-group">
+                                                                    <input type="text" class="media-library__input-text" id="mediaLibraryDetailImageCut" style="width: 80px">
+                                                                </div>
+                                                                <span class="media-library-layer-popup-detail-info-content__etc-text">x</span>
+                                                                <div class="media-library__input-group">
+                                                                    <input type="text" class="media-library__input-text" style="width: 80px">
+                                                                </div>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <!-- //이미지 편집 -->
+
                                                 <div class="media-library-layer-popup-detail-info-footer">
                                                     <button type="button" class="media-library__button media-library__button--subtle">
                                                         취소
